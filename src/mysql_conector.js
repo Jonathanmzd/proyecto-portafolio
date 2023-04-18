@@ -38,5 +38,14 @@ const obtenerContactos = () => {
   return todos
 }
 
+// borrar contacto
+const borrarContacto = id => {
+  const sql = `DELETE FROM contacto WHERE id_contacto=${id}`
+  conector.query(sql, function(err, result, field){
+    if (err) throw err
+    console.log(result) 
+  })
+}
+
 // exportar funcion conectar
-export {conectar, agregarContacto, obtenerContactos}
+export {conectar, agregarContacto, obtenerContactos, borrarContacto}

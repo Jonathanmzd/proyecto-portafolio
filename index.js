@@ -1,6 +1,6 @@
 // Importacion de express
 import express from "express";
-import { agregarContacto, obtenerContactos } from "./src/mysql_conector.js";
+import { agregarContacto, obtenerContactos, borrarContacto } from "./src/mysql_conector.js";
 
 let todos
 
@@ -39,4 +39,11 @@ app.get('/agregar/:nombre/:numero', function(req, res) {
     res.redirect('/')
 
     console.log(nombre, numero)
+})
+
+app.get('/borrar/:id', function(req, res) {
+    let id = req.params.id
+    // console.log(id)
+    borrarContacto(id)
+    res.redirect('/')
 })
