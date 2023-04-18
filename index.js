@@ -1,6 +1,8 @@
 // Importacion de express
 import express from "express";
-import { conectar,agregarContacto } from "./src/mysql_conector.js";
+import { agregarContacto, obtenerContactos } from "./src/mysql_conector.js";
+
+let todos
 
 // Iniciamos Express
 const app = express()
@@ -25,7 +27,8 @@ app.use(express.static('./css'))
 // Ruta Inicial
 app.get('/', function(req,res) {
     // res.send('aplicacion inicia')
-    res.render('index', {titulo:'Aplicacion de Contacto', dato:'envio de datos'})
+    todos = obtenerContactos()
+    res.render('index', {titulo:'Aplicacion de Contacto', contactos:todos})
 })
 
 // Capturar Url

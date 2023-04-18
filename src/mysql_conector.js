@@ -1,6 +1,9 @@
 // importar mysql
 import mysql from "mysql";
 
+// variable todos
+let todos 
+
 // crear conexion
 const conector = mysql.createConnection({
   host: "localhost",
@@ -26,5 +29,14 @@ const agregarContacto = (nombre, numero) => {
   })
 }
 
+// listar contactos
+const obtenerContactos = () => {
+  const sql = `SELECT * FROM contacto`
+  conector.query(sql, function(err, result, field){
+    todos = result 
+  })
+  return todos
+}
+
 // exportar funcion conectar
-export {conectar, agregarContacto}
+export {conectar, agregarContacto, obtenerContactos}
