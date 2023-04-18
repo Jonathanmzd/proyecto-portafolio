@@ -28,3 +28,10 @@ app.get('/', function(req,res) {
     conectar()
     res.render('index', {titulo:'Aplicacion de Contacto', dato:'envio de datos'})
 })
+
+// Capturar Url
+app.get('/agregar/:nombre/:numero', function(req, res) {
+    let nombre = req.params.nombre
+    let numero = req.params.numero
+    console.log(nombre, numero)
+})
