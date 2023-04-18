@@ -24,5 +24,5 @@ app.use(express.static('./css'))
 // Ruta Inicial
 app.get('/', function(req,res) {
     // res.send('aplicacion inicia')
-    res.render('index')
+    res.render('index', {titulo:'Aplicacion de Contacto', dato:'envio de datos'})
 })
