@@ -25,6 +25,7 @@ app.use(express.static('./src'))
 app.use(express.static('./css'))
 
 // Ruta Inicial
+todos = obtenerContactos()
 app.get('/', function(req,res) {
     // res.send('aplicacion inicia')
     todos = obtenerContactos()
